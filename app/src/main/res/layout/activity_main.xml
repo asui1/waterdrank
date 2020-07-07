@@ -69,6 +69,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:contentDescription="@string/StringValue"/>
+
     <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -97,4 +98,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:text="@string/title_text"/>
+
 </android.support.constraint.ConstraintLayout>
