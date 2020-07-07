@@ -9,4 +9,5 @@
     <string name="setting">설정</string>
     <string name="StringValue">이미지가 열리지 않습니다.</string>
     <string name="title_text">매일 물마시기!</string>
+    <string name="water_amount">0 mL</string>
 </resources>
