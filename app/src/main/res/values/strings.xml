@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">water_drank</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="water_amount_button1">한 모금(30ml)</string>
+    <string name="water_amount_button2">한 컵(200ml)</string>
+    <string name="water_amount_button3">한 병(500ml)</string>
+    <string name="setting">설정</string>
+    <string name="StringValue">이미지가 열리지 않습니다.</string>
+    <string name="title_text">매일 물마시기!</string>
+</resources>
