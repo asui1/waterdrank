@@ -2,18 +2,22 @@
 <android.support.constraint.ConstraintLayout
         android:id="@+id/day_cell_ll_background"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="45dp"
+        android:layout_width="wrap_content"
         android:layout_height="53dp"
-        android:background="@drawable/day"
+        android:background="@drawable/outline"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- 날짜 -->
+
+
+
     <TextView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:text="1"
+            android:text="@string/day_default"
+            android:id="@+id/day"
             android:gravity="center"
             android:textSize="22sp"
             android:padding="5dp"

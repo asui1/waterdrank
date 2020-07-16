@@ -5,6 +5,8 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import kotlinx.android.synthetic.main.calander.*
 
@@ -15,12 +17,26 @@ class CalenderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calander)
 
+        var data:MutableList<CalenderData> = setData()
+        var adapter = CalenderAdapter()
+        adapter.listData = data
+        calender_body.adapter = adapter
+        calender_body.layoutManager = GridLayoutManager(this, 7)
 
         calender_back.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
+    }
+
+    fun setData(): MutableList<CalenderData>{
+        var data:MutableList<CalenderData> = mutableListOf()
+        for(num in 1..30){
+            var listdata = CalenderData(num)
+            data.add(listdata)
+        }
+        return data
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

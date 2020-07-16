@@ -21,7 +21,7 @@
 
     <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="600dp"
             android:id="@+id/water_drop"
             android:padding="0dp"
             android:adjustViewBounds="true"
@@ -35,7 +35,7 @@
 
     <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="600dp"
             app:srcCompat="@color/aqua" android:id="@+id/hide_drop"
             android:padding="0dp"
             android:contentDescription="@string/StringValue"
@@ -45,40 +45,108 @@
 
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="120dp"
+            android:id="@+id/bottom_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:srcCompat = "@color/button_back"
     />
 
-    <Button
+    <ImageButton
+            android:src="@drawable/papercup"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginTop = "5dp"
+            android:layout_marginEnd = "5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/water_amount_button2"
+            app:layout_constraintTop_toTopOf="@id/bottom_padding"
+            android:contentDescription="@string/StringValue"
             android:layout_width="130dp"
             android:layout_height="70dp"
             android:id="@+id/water_amount_button1"
-            android:text="@string/water_amount_button1"
-            app:layout_constraintEnd_toStartOf="@id/water_amount_button2"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:padding="10dp"
 />
 
-    <Button
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/water_amount_text1"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:text="@string/water_amount_button1"
+            app:layout_constraintTop_toBottomOf="@id/water_amount_button2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/water_amount_button2"
+            android:gravity="center_vertical"/>
+
+
+    <ImageButton
+            android:src="@drawable/cup"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginTop = "5dp"
+            android:layout_marginEnd = "5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_padding"
+            android:contentDescription="@string/StringValue"
             android:layout_width="130dp"
             android:layout_height="70dp"
             android:id="@+id/water_amount_button2"
-            android:text="@string/water_amount_button2"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
     />
-    <Button
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/water_amount_text2"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintTop_toBottomOf="@id/water_amount_button2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/water_amount_button2"/>
+
+
+    <ImageButton
+            android:src="@drawable/bottle"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginTop = "5dp"
+            android:layout_marginEnd = "5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_padding"
+            android:contentDescription="@string/StringValue"
             android:layout_width="130dp"
             android:layout_height="70dp"
             android:id="@+id/water_amount_button3"
-            android:text="@string/water_amount_button3"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:padding="10dp"
-            app:layout_constraintStart_toEndOf="@id/water_amount_button2"
+            app:layout_constraintLeft_toRightOf="@id/water_amount_button2"
     />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/water_amount_text3"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintTop_toBottomOf="@id/water_amount_button2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/water_amount_button2"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/water_amount_button3"/>
+
 
     <ImageView
             android:layout_width="match_parent"
@@ -86,6 +154,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat = "@color/button_back"
     />
+
+    <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/undo"
+            android:padding="0dp"
+            android:src="@drawable/undo"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginTop = "5dp"
+            android:layout_marginEnd = "5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_padding"
+            android:contentDescription="@string/StringValue"/>
+
 
     <ImageButton
             android:layout_width="60dp"
