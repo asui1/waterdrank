@@ -1,5 +1,6 @@
 package asui.water
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     var total_water = 2000.0
     var water1 = 30.0
     var water2 = 200.0
+    var mBackWait:Long = 0
     var cur_depth = 0.0
     var water3 = 500.0
     var waters = 0.0
@@ -64,11 +66,34 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        calender.setOnClickListener{
+            startActivity(Intent(this, CalenderActivity::class.java))
+            finish()
+        }
+
+        setting.setOnClickListener{
+            startActivity(Intent(this, SettingActivity::class.java))
+            finish()
+        }
+
+
     }
+
+    override fun onBackPressed() {
+        // 뒤로가기 버튼 클릭
+        if(System.currentTimeMillis() - mBackWait >=2000 ) {
+            mBackWait = System.currentTimeMillis()
+            Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_LONG).show()
+        } else {
+            finish() //액티비티 종료
+        }
+    }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
     }
+
 
     private fun hideSystemUI() {
         // Enables regular immersive mode.

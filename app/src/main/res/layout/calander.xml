@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/aqua">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id = "@+id/calender_background"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/StringValue"
+            app:srcCompat = "@color/button_back"/>
+
+    <TextView
+             android:text="@string/calender_title"
+             android:textSize="30sp"
+             android:id="@+id/calender_title"
+             android:layout_height="70dp"
+             android:layout_width="match_parent"
+             android:textColor="#000"
+             android:paddingLeft = "10dp"
+             android:gravity = "center_vertical"
+             app:layout_constraintTop_toTopOf="@id/calender_background"
+             app:layout_constraintLeft_toLeftOf="@id/calender_background"
+             android:textStyle="bold"/>
+
+    <ImageButton
+            android:id="@+id/calender_back"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/goback"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/StringValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+            android:id="@+id/calender_next"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            app:layout_constraintTop_toTopOf="@id/calender_background"
+            app:layout_constraintRight_toLeftOf="@id/calender_back"
+            android:text="다음달"  />
+    <Button
+             android:id="@+id/calender_prev"
+             android:layout_width="70dp"
+             android:layout_height="70dp"
+             android:layout_weight="1"
+             app:layout_constraintTop_toTopOf="@id/calender_background"
+             app:layout_constraintRight_toLeftOf="@id/calender_next"
+             android:text="지난달"  />
+
+    <GridView
+            android:id="@+id/calender_body"
+            android:layout_width="match_parent"
+            android:layout_height="540dp"
+            android:layout_marginTop="30dp"
+            android:numColumns="7"
+            android:stretchMode="columnWidth"
+            android:listSelector="@drawable/gridview_selector"
+            app:layout_constraintTop_toBottomOf="@id/calender_background"
+    />
+
+    <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id="@+id/calender_toggle"
+            android:textOn = "Chart"
+            android:textOff = "Calender"
+            app:layout_constraintTop_toBottomOf="@id/calender_body"
+            android:paddingTop = "10dp"
+    />
+
+
+</android.support.constraint.ConstraintLayout>
+
+

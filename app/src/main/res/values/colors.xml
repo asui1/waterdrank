@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#0000FF</color>
     <color name="aqua">#FFECFFFF</color>
+    <color name="color_ffffff">#FFFFFF</color>
+    <color name="color_21a4ff">#21a4FF</color>
+    <color name="transparent">#21a4FF</color>
+    <color name="button_back">#AFEEEE</color>
+
 </resources>
