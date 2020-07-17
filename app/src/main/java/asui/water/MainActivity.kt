@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     var onlyDate: LocalDate = LocalDate.now()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val pref = this.getPreferences(0)
+        val editor = pref.edit()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         update_waters()

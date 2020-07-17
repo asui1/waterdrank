@@ -12,27 +12,5 @@ class Variables: Application() {
         var waters = 0.0
         var adds = mutableListOf(0.0)
     }
-    fun get_water1():Double{
-        return water1
-    }
-    fun set_water1(water: Double){
-        water1 = water
-    }
-    fun get_water2():Double{
-        return water2
-    }
-    fun set_water2(water: Double){
-        water2 = water
-    }
-    fun get_water3():Double{
-        return water3
-    }
-    fun set_water3(water: Double){
-        water3 = water
-    }
-    fun add_water(water: Double):Double{
-        waters += water
-        return waters
-    }
 
 }
