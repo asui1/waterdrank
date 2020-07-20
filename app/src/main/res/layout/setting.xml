@@ -4,7 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/aqua"
+>
 
     <ImageButton
             android:id="@+id/setting_back"
@@ -16,4 +18,66 @@
             android:contentDescription="@string/StringValue"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageButton
+            android:src="@drawable/reset"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/increase"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/StringValue"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:id="@+id/reset"
+            android:padding="10dp"
+    />
+
+    <TextView
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:id="@+id/reset_text"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:typeface="serif"
+
+            app:layout_constraintTop_toBottomOf="@id/reset"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/increase_text"
+            android:text="@string/reset"
+            android:gravity="center_horizontal"/>
+
+    <ImageButton
+            android:src="@drawable/increase"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:layout_constraintLeft_toRightOf="@+id/reset"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/StringValue"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:id="@+id/increase"
+            android:padding="10dp"
+    />
+
+    <TextView
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:id="@+id/increase_text"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintTop_toBottomOf="@id/increase"
+            app:layout_constraintLeft_toRightOf="@id/reset_text"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/increase"
+            android:gravity="center_horizontal"/>
+
 </android.support.constraint.ConstraintLayout>

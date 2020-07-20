@@ -20,4 +20,6 @@
     <string name="waters">waters</string>
     <string name="total_water">total_waters</string>
     <string name="cur_depth">cur_depth</string>
+    <string name="reset">리셋</string>
+    <string name="increase">1.1배</string>
 </resources>

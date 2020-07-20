@@ -48,6 +48,9 @@ class CalenderActivity : AppCompatActivity() {
         data.add(CalenderData("목"))
         data.add(CalenderData("금"))
         data.add(CalenderData("토"))
+        for(i in 1..31){
+            data.add(CalenderData(i.toString()))
+        }
         return data
     }
 

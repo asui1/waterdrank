@@ -35,10 +35,6 @@ class CalenderAdapter : RecyclerView.Adapter<Holder>(){
 class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
     fun setListData(listdata: CalenderData){
         itemView.day_cell_ll_background.day.text = listdata.date
-        try{
-            var day = listdata.date.toInt()
-
-        }
         if(listdata.date == "일"){
             itemView.day_cell_ll_background.day.setTextColor(Color.RED)
         }

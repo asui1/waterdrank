@@ -15,14 +15,33 @@ class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
-        asui.water.Variables.updateVars = true
-        asui.water.Variables.water1 = 50.0
-        asui.water.Variables.water2 = 300.0
 
         setting_back.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+        reset.setOnClickListener{
+            reset_Variables()
+        }
+        increase.setOnClickListener{
+            increase_Variables()
+
+        }
+    }
+    fun increase_Variables(){
+        asui.water.Variables.updateVars = true
+        asui.water.Variables.water1 = asui.water.Variables.water1*1.1
+        asui.water.Variables.water2 = asui.water.Variables.water2*1.1
+        asui.water.Variables.water3 = asui.water.Variables.water3*1.1
+
+    }
+
+    fun reset_Variables(){
+        asui.water.Variables.updateVars = true
+        asui.water.Variables.water1 = 30.0
+        asui.water.Variables.water2 = 200.0
+        asui.water.Variables.water3 = 500.0
+
     }
 
     override fun onBackPressed() {
