@@ -1,10 +1,6 @@
 package asui.water
 
 import android.app.Application
-import android.content.Context
-import java.io.File
-import java.io.FileOutputStream
-import java.security.AccessController.getContext
 
 class Variables: Application() {
     companion object {
@@ -15,7 +11,6 @@ class Variables: Application() {
         var water3 = 500.0
         var waters = 0.0
         var adds = mutableListOf(0.0)
-        var updateVars = false
     }
 
 }

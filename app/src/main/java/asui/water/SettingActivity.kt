@@ -5,9 +5,6 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
-import kotlinx.android.synthetic.main.calander.*
-import kotlinx.android.synthetic.main.setting.*
 
 class SettingActivity : AppCompatActivity() {
 
@@ -15,14 +12,6 @@ class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
-        asui.water.Variables.updateVars = true
-        asui.water.Variables.water1 = 50.0
-        asui.water.Variables.water2 = 300.0
-
-        setting_back.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
     }
 
     override fun onBackPressed() {

@@ -1,6 +1,5 @@
 package asui.water
 
-import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
@@ -20,38 +19,24 @@ import java.time.LocalDate
 class MainActivity : AppCompatActivity() {
     var mBackWait:Long = 0
     var intensity = Resources.getSystem().getDisplayMetrics().density;
+    var total_water = asui.water.Variables.total_water
     var water1 = asui.water.Variables.water1
     var water2 = asui.water.Variables.water2
     var water3 = asui.water.Variables.water3
-    var total_water = asui.water.Variables.total_water
     var waters = asui.water.Variables.waters
     var cur_depth = asui.water.Variables.cur_depth
     var onlyDate: LocalDate = LocalDate.now()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = this.getPreferences(0)
         val editor = pref.edit()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        waters = pref.getInt(onlyDate.toString(), 0).toDouble()
-        if(asui.water.Variables.updateVars == true){
-            editor.putInt(getString(R.string.water1), water1.toInt()).apply()
-            editor.putInt(getString(R.string.water2), water2.toInt()).apply()
-            editor.putInt(getString(R.string.water3), water3.toInt()).apply()
-            editor.putInt(getString(R.string.total_water), total_water.toInt()).apply()
-            asui.water.Variables.updateVars=false
-            editor.commit()
-        }
-        else{
-            water1 = pref.getInt(getString(R.string.water1), 30).toDouble()
-            water2 = pref.getInt(getString(R.string.water2), 200).toDouble()
-            water3 = pref.getInt(getString(R.string.water3), 500).toDouble()
-            total_water = pref.getInt(getString(R.string.total_water), 2000).toDouble()
-        }
+        update_waters()
         water_amount_text1.setText(water1.toInt().toString() + "mL")
         water_amount_text2.setText(water2.toInt().toString() + "mL")
         water_amount_text3.setText(water3.toInt().toString() + "mL")
-        update_waters()
-//        Toast.makeText(this, onlyDate.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, onlyDate.toString(), Toast.LENGTH_LONG).show()
 
         water_amount_button1.setOnClickListener{
             asui.water.Variables.waters += water1
@@ -59,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             asui.water.Variables.adds.add(water1)
             Toast.makeText(this, water1.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
-            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
         }
         water_amount_button2.setOnClickListener{
@@ -68,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             asui.water.Variables.adds.add(water2)
             Toast.makeText(this, water2.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
-            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
         }
         water_amount_button3.setOnClickListener{
@@ -77,7 +60,6 @@ class MainActivity : AppCompatActivity() {
             waters = asui.water.Variables.waters
             Toast.makeText(this, water3.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
-            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
         }
 
         undo.setOnClickListener{
@@ -88,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 asui.water.Variables.adds.removeAt(asui.water.Variables.adds.size-1)
                 waters = asui.water.Variables.waters
                 update_waters()
-                editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
             }
             else{
