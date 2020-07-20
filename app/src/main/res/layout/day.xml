@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
-        android:background="@drawable/outline"
+        android:background="@color/aqua"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- 날짜 -->

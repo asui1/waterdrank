@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val editor = pref.edit()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        waters = pref.getInt(onlyDate.toString(), 0).toDouble()
         if(asui.water.Variables.updateVars == true){
             editor.putInt(getString(R.string.water1), water1.toInt()).apply()
             editor.putInt(getString(R.string.water2), water2.toInt()).apply()
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         water_amount_text2.setText(water2.toInt().toString() + "mL")
         water_amount_text3.setText(water3.toInt().toString() + "mL")
         update_waters()
-        Toast.makeText(this, onlyDate.toString(), Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, onlyDate.toString(), Toast.LENGTH_SHORT).show()
 
         water_amount_button1.setOnClickListener{
             asui.water.Variables.waters += water1
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             asui.water.Variables.adds.add(water1)
             Toast.makeText(this, water1.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
+            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
         }
         water_amount_button2.setOnClickListener{
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             asui.water.Variables.adds.add(water2)
             Toast.makeText(this, water2.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
+            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
         }
         water_amount_button3.setOnClickListener{
@@ -74,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             waters = asui.water.Variables.waters
             Toast.makeText(this, water3.toString()+"mL를 마셨습니다!", Toast.LENGTH_SHORT).show()
             update_waters()
+            editor.putInt(onlyDate.toString(), waters.toInt()).apply()
         }
 
         undo.setOnClickListener{
@@ -84,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 asui.water.Variables.adds.removeAt(asui.water.Variables.adds.size-1)
                 waters = asui.water.Variables.waters
                 update_waters()
+                editor.putInt(onlyDate.toString(), waters.toInt()).apply()
 
             }
             else{

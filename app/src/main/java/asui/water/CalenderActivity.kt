@@ -4,25 +4,34 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import kotlinx.android.synthetic.main.calander.*
+import java.util.*
 
 class CalenderActivity : AppCompatActivity() {
 
     var intensity = Resources.getSystem().getDisplayMetrics().density;
+    var cal = Calendar.getInstance()
+    var mon = cal.get(Calendar.MONTH)
+    var year = cal.get(Calendar.YEAR)
+    var data:MutableList<CalenderData> = setData()
+    init{
+        cal.time = Date()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calander)
-
-        var data:MutableList<CalenderData> = setData()
         var adapter = CalenderAdapter()
         adapter.listData = data
         calender_body.adapter = adapter
         calender_body.layoutManager = GridLayoutManager(this, 7)
-
+        calender_body.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
+        calender_body.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         calender_back.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -32,10 +41,13 @@ class CalenderActivity : AppCompatActivity() {
 
     fun setData(): MutableList<CalenderData>{
         var data:MutableList<CalenderData> = mutableListOf()
-        for(num in 1..30){
-            var listdata = CalenderData(num)
-            data.add(listdata)
-        }
+        data.add(CalenderData("일"))
+        data.add(CalenderData("월"))
+        data.add(CalenderData("화"))
+        data.add(CalenderData("수"))
+        data.add(CalenderData("목"))
+        data.add(CalenderData("금"))
+        data.add(CalenderData("토"))
         return data
     }
 
