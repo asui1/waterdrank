@@ -35,11 +35,12 @@ class CalenderAdapter : RecyclerView.Adapter<Holder>(){
 class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
     fun setListData(listdata: CalenderData){
         itemView.day_cell_ll_background.day.text = listdata.date
-        if(listdata.date == "일"){
-            itemView.day_cell_ll_background.day.setTextColor(Color.RED)
-        }
-        if(listdata.date == "토"){
-            itemView.day_cell_ll_background.day.setTextColor(Color.BLUE)
+        when(listdata.cor){
+            "red" -> itemView.day_cell_ll_background.day.setTextColor(Color.RED)
+            "blue" -> itemView.day_cell_ll_background.day.setTextColor(Color.BLUE)
+            "grey" -> itemView.day_cell_ll_background.day.setTextColor(Color.GRAY)
+            else -> itemView.day_cell_ll_background.day.setTextColor(Color.BLACK)
+
         }
     }
 }

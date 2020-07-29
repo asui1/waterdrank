@@ -21,35 +21,75 @@ class CalenderActivity : AppCompatActivity() {
     var data:MutableList<CalenderData> = setData()
     init{
         cal.time = Date()
+        cal.set(Calendar.DATE, 1)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calander)
+        calender_title.setText(cal.get(Calendar.YEAR).toString()+"년 "+(cal.get(Calendar.MONTH)+1).toString()+"월")
         var adapter = CalenderAdapter()
         adapter.listData = data
         calender_body.adapter = adapter
         calender_body.layoutManager = GridLayoutManager(this, 7)
         calender_body.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
         calender_body.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+
+
         calender_back.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+        calender_prev.setOnClickListener{
+            cal.add(Calendar.MONTH, -1)
+            adapter.listData = setData()
+            calender_title.setText(cal.get(Calendar.YEAR).toString()+"/"+(cal.get(Calendar.MONTH)+1).toString())
+            calender_body.adapter = adapter
+
+        }
+        calender_next.setOnClickListener{
+            cal.add(Calendar.MONTH, 1)
+            adapter.listData = setData()
+            calender_title.setText(cal.get(Calendar.YEAR).toString()+"/"+(cal.get(Calendar.MONTH)+1).toString())
+            calender_body.adapter = adapter
+        }
+
 
     }
 
+
     fun setData(): MutableList<CalenderData>{
         var data:MutableList<CalenderData> = mutableListOf()
-        data.add(CalenderData("일"))
-        data.add(CalenderData("월"))
-        data.add(CalenderData("화"))
-        data.add(CalenderData("수"))
-        data.add(CalenderData("목"))
-        data.add(CalenderData("금"))
-        data.add(CalenderData("토"))
-        for(i in 1..31){
-            data.add(CalenderData(i.toString()))
+
+        data.add(CalenderData("일", "red"))
+        data.add(CalenderData("월", "black"))
+        data.add(CalenderData("화", "black"))
+        data.add(CalenderData("수", "black"))
+        data.add(CalenderData("목", "black"))
+        data.add(CalenderData("금", "black"))
+        data.add(CalenderData("토", "blue"))
+        val end_month =cal.getActualMaximum(Calendar.DAY_OF_MONTH)
+        var bef = cal.get(Calendar.DAY_OF_WEEK)-1
+        var temp_cal = cal.clone() as Calendar
+        temp_cal.add(Calendar.MONTH, -1)
+        var temp_end_month = temp_cal.getActualMaximum(Calendar.DAY_OF_MONTH)
+        var count = 0
+        for(i in temp_end_month-bef+1 .. temp_end_month){
+            data.add(CalenderData(i.toString(), "grey"))
+            count += 1
+        }
+        for(i in 1.. end_month){
+            when(count % 7){
+                0 -> data.add(CalenderData(i.toString(), "red"))
+                6 -> data.add(CalenderData(i.toString(), "blue"))
+                else -> data.add(CalenderData(i.toString(), "black"))
+
+            }
+            count += 1
+        }
+        for(i in 1 .. 42-end_month-bef){
+            data.add(CalenderData(i.toString(), "grey"))
+            count += 1
         }
         return data
     }

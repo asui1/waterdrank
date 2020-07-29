@@ -10,7 +10,7 @@
     <string name="StringValue">이미지가 열리지 않습니다.</string>
     <string name="title_text">매일 물마시기!</string>
     <string name="water_amount">0 mL</string>
-    <string name="calender_title">2020년 07월</string>
+    <string name="calender_title">2020/07</string>
     <string name="day_default">1</string>
     <string name="file_name">water_save</string>
     <string name="pref_name">water_pref</string>
